@@ -1,3 +1,4 @@
+require 'pry'
 class Student
 
   # Remember, you can access your database connection anywhere in this class
@@ -34,6 +35,7 @@ class Student
     VALUES (? ,?)"
 
     DB[:conn].execute(sql, self.name, self.grade)
+    #binding.pry
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
 
   end
